@@ -4,7 +4,7 @@ function pkg
          end
 end
 
-set -g packages bass 'hasanozgan/theme-lambda'
+set -g packages bass 'fishery/segment'
 
 function pkg_install
          for package in $packages
