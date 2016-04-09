@@ -1,3 +1,7 @@
+function nvm_current
+         which node | grep -oP 'node/v.*?/' | sed 's/node\/\(.*\)\/$/\1/'
+end
+
 function fish_prompt
    set_color yellow
    printf '%s' (whoami)
@@ -18,8 +22,8 @@ function fish_prompt
    if test $VIRTUAL_ENV
        printf "(%s) " (set_color blue)(basename $VIRTUAL_ENV)(set_color normal)
    end
-   printf "(%s) " (set_color f55)(rvm current)(set_color normal)
-   printf "(%s) " (set_color green)(nvm current)(set_color normal)
+   printf "(%s) " (set_color f55)$RUBY_VERSION(set_color normal)
+   printf "(%s) " (set_color green)(nvm_current)(set_color normal)
    printf '↪ '
    set_color normal
 end
